@@ -104,7 +104,7 @@ class Util {
         if( $count < self::TO_ARRAY_LOOP_MAX ) {
             // toArray()を呼べるなら
             if( self::methodExists($var,'toArray') ) {
-                return $var->toArray();
+                $ret = $var->toArray();
             }else {
                 // stdClassの場合は配列にして返す
                 if(is_object($var) && get_class($var) == 'stdClass'){
