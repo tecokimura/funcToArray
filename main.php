@@ -104,20 +104,20 @@ class Util {
         if( $count < self::TO_ARRAY_LOOP_MAX ) {
             // toArray()を呼べるなら
             if( self::methodExists($var,'toArray') ) {
-                $ret = $var->toArray();
+                $ret = self::toArray($var->toArray(), $count+1);
             }else {
                 // stdClassの場合は配列にして返す
                 if(is_object($var) && get_class($var) == 'stdClass'){
                     $var = (array)$var;
-                    $ret = $var;
                 }
 
                 // 配列の場合は再起させる
                 if( is_array($var) ) {
-                    $count++;
                     foreach($var as $key => $value) {
-                        $ret[$key] = self::toArray($value, $count);
+                        $ret[$key] = self::toArray($value, $count+1);
                     }
+                } else {
+                    $ret = $var;
                 }
             }
         }
