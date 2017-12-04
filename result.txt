@@ -1,0 +1,167 @@
+========================================
+new Member() で初期化した値を var_dump() で表示
+array(3) {
+  ["memA"]=>
+  object(Member)#1 (3) {
+    ["name"]=>
+    string(7) "Aさん"
+    ["age"]=>
+    int(10)
+    ["data"]=>
+    string(5) "Tokyo"
+  }
+  ["memB"]=>
+  object(Member)#2 (3) {
+    ["name"]=>
+    string(7) "Bさん"
+    ["age"]=>
+    int(21)
+    ["data"]=>
+    object(Member)#1 (3) {
+      ["name"]=>
+      string(7) "Aさん"
+      ["age"]=>
+      int(10)
+      ["data"]=>
+      string(5) "Tokyo"
+    }
+  }
+  ["memC"]=>
+  object(Member)#3 (3) {
+    ["name"]=>
+    string(7) "Cさん"
+    ["age"]=>
+    int(32)
+    ["data"]=>
+    int(777)
+  }
+}
+--------------------------
+new Member() で初期化した値を Util::toArray() で表示
+array(3) {
+  ["memA"]=>
+  array(3) {
+    ["name"]=>
+    string(7) "Aさん"
+    ["age"]=>
+    int(10)
+    ["data"]=>
+    string(5) "Tokyo"
+  }
+  ["memB"]=>
+  array(3) {
+    ["name"]=>
+    string(7) "Bさん"
+    ["age"]=>
+    int(21)
+    ["data"]=>
+    object(Member)#1 (3) {
+      ["name"]=>
+      string(7) "Aさん"
+      ["age"]=>
+      int(10)
+      ["data"]=>
+      string(5) "Tokyo"
+    }
+  }
+  ["memC"]=>
+  array(3) {
+    ["name"]=>
+    string(7) "Cさん"
+    ["age"]=>
+    int(32)
+    ["data"]=>
+    int(777)
+  }
+}
+ 
+========================================
+配列に入った色々なデータを var_dump() で表示
+========================================
+配列に入った色々なデータを Util::toArray() で表示
+array(1) {
+  ["aryMem"]=>
+  array(5) {
+    [0]=>
+    object(Member)#1 (3) {
+      ["name"]=>
+      string(7) "Aさん"
+      ["age"]=>
+      int(10)
+      ["data"]=>
+      string(5) "Tokyo"
+    }
+    [1]=>
+    int(100)
+    [2]=>
+    object(Member)#2 (3) {
+      ["name"]=>
+      string(7) "Bさん"
+      ["age"]=>
+      int(21)
+      ["data"]=>
+      object(Member)#1 (3) {
+        ["name"]=>
+        string(7) "Aさん"
+        ["age"]=>
+        int(10)
+        ["data"]=>
+        string(5) "Tokyo"
+      }
+    }
+    [3]=>
+    string(5) "Hello"
+    [4]=>
+    object(Member)#3 (3) {
+      ["name"]=>
+      string(7) "Cさん"
+      ["age"]=>
+      int(32)
+      ["data"]=>
+      int(777)
+    }
+  }
+}
+array(1) {
+  ["aryMem"]=>
+  array(5) {
+    [0]=>
+    array(3) {
+      ["name"]=>
+      string(7) "Aさん"
+      ["age"]=>
+      int(10)
+      ["data"]=>
+      string(5) "Tokyo"
+    }
+    [1]=>
+    int(100)
+    [2]=>
+    array(3) {
+      ["name"]=>
+      string(7) "Bさん"
+      ["age"]=>
+      int(21)
+      ["data"]=>
+      object(Member)#1 (3) {
+        ["name"]=>
+        string(7) "Aさん"
+        ["age"]=>
+        int(10)
+        ["data"]=>
+        string(5) "Tokyo"
+      }
+    }
+    [3]=>
+    string(5) "Hello"
+    [4]=>
+    array(3) {
+      ["name"]=>
+      string(7) "Cさん"
+      ["age"]=>
+      int(32)
+      ["data"]=>
+      int(777)
+    }
+  }
+}
