@@ -101,9 +101,7 @@ class Util {
 
         $ret = $var;
 
-        if( self::TO_ARRAY_LOOP_MAX < $count ) {
-            return $var;
-        } else {
+        if( $count < self::TO_ARRAY_LOOP_MAX ) {
             // toArray()を呼べるなら
             if( self::methodExists($var,'toArray') ) {
                 return $var->toArray();
