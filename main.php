@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: kimura
+ * User: tecokimura
  * Date: 2017/12/04
  * Time: 18:42
  */
@@ -9,6 +9,10 @@
 main();
 exit;
 
+/**
+ * メイン処理
+ * Util::toArray() の動作サンプル
+ */
 function main() {
 
     // クラスをそのまま
@@ -30,7 +34,6 @@ function main() {
     var_dump(Util::toArray(['memA' => $memA, 'memB' => $memB, 'memC' => $memC]));
 
     Util::out(' ');
-
 
     // 配列に入れる
     $aryMem = [
@@ -83,17 +86,22 @@ class Member {
  */
 class Util {
 
-    // 再起させる回数
+    // 再起させる最大回数
     const TO_ARRAY_LOOP_MAX = 10;
 
-    // 再起させてtoArrayを呼べるものは呼ぶ
-    // stdClassの場合は配列にキャスつするように変更  2012/05/16 ohtsuki
+    /**
+     * オブジェクトでtoArrayを呼び出せる関数は呼び出す
+     * stdClassの場合は配列にキャストするようにする
+     *
+     * @param $var
+     * @param int $count
+     * @return array
+     */
     static function toArray($var, $count=0) {
 
         $ret = $var;
 
         if( self::TO_ARRAY_LOOP_MAX < $count ) {
-            // 再起しすぎを止める(オブジェクトのまま返す)
             return $var;
         } else {
             // toArray()を呼べるなら
@@ -123,9 +131,8 @@ class Util {
     /**
      * $instanceにメソッドがあるか調べる
      * objectではないのならメソットは存在し得ない
-     * method_existsで未知のクラスが呼ばれるとautoloaderが走るのをis_objectで防ぐ
+     * method_existsで未知のクラスが呼ばれるとauto_loaderが走るのをis_objectで防ぐ
      *
-     * @author tecokimura
      * @param object $instance 調べるインスタンス
      * @param string $methodName 関数名前を調べる
      * @return bool TRUE=メソッドがある、FALSE=メソッドがない
@@ -136,7 +143,9 @@ class Util {
 
 
     /**
-     * 文字出力用の関数
+     * 文字出力して改行する関数
+     *
+     * @param String $str
      */
     static function out($str) {
         echo $str. PHP_EOL;
