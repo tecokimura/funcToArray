@@ -90,8 +90,9 @@ class Util {
     const TO_ARRAY_LOOP_MAX = 10;
 
     /**
-     * オブジェクトでtoArrayを呼び出せる関数は呼び出す
-     * stdClassの場合は配列にキャストするようにする
+     * オブジェクトで
+     *  toArrayを呼び出せる場合は呼び出し
+     *  stdClassの場合は配列にキャストするようにする
      *
      * @param $var
      * @param int $count
